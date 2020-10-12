@@ -4,6 +4,7 @@ Package is prepared to make SOAP calls from PL/SQL. URL in SOAP call must be add
 
 Sample of SOAP REQUEST generated from WSDL</br>
 
+```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:java="http://soap.my.com">
    <soapenv:Header/>
    <soapenv:Body>
@@ -14,9 +15,9 @@ Sample of SOAP REQUEST generated from WSDL</br>
       </java:myFunction>
   </soapenv:Body>
 </soapenv:Envelope>
-
+```
 Sample of SOAP RESPONSE:
-
+```
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/">
    <soapenv:Body>
       <ns2:myFunctionResponse xmlns:ns2="http://soap.my.com">
@@ -24,11 +25,11 @@ Sample of SOAP RESPONSE:
       </ns2:myFunctionResponse>
    </soapenv:Body>
 </soapenv:Envelope>
-
+```
 
 Code in PL/SQL - sample
 
-
+```
 declare
    req  dd_soap.request;
    resp dd_soap.response;
@@ -44,7 +45,7 @@ begin
 	   //Parsing RESPONSE
        return decodeXML(dd_soap.get_return_value(resp, 'data', 'xmlns:ns2="http://soap.my.com"')) ;                  
 end;
-	 
+```	 
 	 
 	 
 
